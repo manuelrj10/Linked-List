@@ -23,19 +23,23 @@ class NthNodefromEndLL{
         temp.next=newNode;
 
     }
-    void removeNthFromEnd(int n){
-        Node fast=head;
-        Node slow=head;
-
-        for(int i=0;i<n;i++){
-            fast=fast.next;
-        }
-        while(fast!=null && fast.next!=null ){
-            slow=slow.next;
-            fast=fast.next;
-        }
-        slow.next=slow.next.next;
+   void nthNodefromEndLL(int n){
+    Node fast=head;
+    Node slow=head;
+    for(int i=0;i<n;i++){
+        fast=fast.next;
     }
+    if(fast==null){
+        head=head.next;
+    }
+    while(fast.next!=null){
+        slow=slow.next;
+        fast=fast.next;
+    }
+    slow.next=slow.next.next;
+    
+
+   }
     void traverse(){
         Node temp=head;
         while(temp!=null){
@@ -57,7 +61,7 @@ class NthNodefromEndLL{
         ndl.insert(50);
     
        
-        ndl.removeNthFromEnd(2);
+        ndl.nthNodefromEndLL(3);
 
         ndl.traverse();
 
